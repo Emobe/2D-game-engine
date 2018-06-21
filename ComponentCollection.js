@@ -15,11 +15,12 @@ class ComponentCollecton {
   addComponent(item: Component) {
     this.components.set(item.constructor.name, item);
     this.onComponentAdded(new CustomEvent('Component Added', { detail: item }));
+    console.log(item);
     item.initialise();
   }
 
-  findComponent(item: Component) {
-    return this.components.get(item.constructor.name);
+  findComponent(name: string) {
+    return this.components.get(name);
   }
 
   get getAllComponents(): ComponentList {

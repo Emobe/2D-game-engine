@@ -8,8 +8,8 @@ import Input from './Input/Input';
 class NessJS {
   constructor(){
     this.mainScene = new Scene();
-    this.player = new Player();
-    this.contentManager = new PIXI.loaders.Loader();
+    this.player = new Player('hello', 0, 0);
+    this.loader = new PIXI.loaders.Loader();
     this.input = new Input();
   }
 
@@ -19,7 +19,7 @@ class NessJS {
     this.app.ticker.add(delta => this.gameLoop(delta));
     this.mainScene.initialise();
     this.textures = ['player.png'];
-    this.mainScene.Manager.addEntity('player', new Player())
+    this.mainScene.Manager.addEntity('player', this.player)
     this.input.initialise();
     this.loadContent();
   }
@@ -28,11 +28,16 @@ class NessJS {
     //const assets = textures.map(texture => root.concat(texture));
     //this.mainScene.load
     //PIXI.loader.add(assets).load(this.main.bind(this));
-    this.mainScene.loadContent(this.contentManager, this.app.stage);
-    console.log(this.app.stage);
+    this.mainScene.loadContent(this.loader, this.app.stage);
+    this.loader.on('progress', this.isLoading);
+    this.loader.load((loader, resources) => console.log(resources, loader));
   }
 
-  gameLoop(delta: Number){
+  isLoading(loader){
+    console.log(loader.progress + '%');
+  }
+
+  gameLoop(delta: number){
     this.mainScene.update(delta);
     //this.input.update();
   }

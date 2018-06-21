@@ -6,6 +6,8 @@ import EntityCollection from './EntityCollection';
 
 class ComponentManager extends EntityCollection {
 
+  stage: any;
+
   constructor() {
     super();
     this.entities.forEach((value, key, map) => console.log(value, key, map));
@@ -19,14 +21,14 @@ class ComponentManager extends EntityCollection {
     });
   }
 
-  loadContent(contentManager, stage) {
+  loadContent(loader: any, stage: any) {
     this.getAllEntities.forEach((entity: Entity) => {
       entity.getAllComponents.forEach((component: Component) =>{
         switch(component.constructor.name){
           case "Sprite": 
-            return component.loadContent(contentManager, stage);
+            return component.loadContent(loader, stage);
           default: 
-            return component.loadContent(contentManager);
+            return component.loadContent(loader);
         }
       });
     });
@@ -34,11 +36,11 @@ class ComponentManager extends EntityCollection {
 
   unloadGraphics() {}
 
-  update(delta: Number) {
+  update(delta: number) {
     this.entities.forEach((entity: Entity) => {
-      entity.getAllComponents.forEach((component: Component) =>
+      entity.getAllComponents.forEach((component: Component) =>{
         component.update(delta)
-      );
+      });
     });
     //  });
   }
@@ -47,7 +49,7 @@ class ComponentManager extends EntityCollection {
     //  this.entities.forEach(entity => entity.render());
   }
 
-  set Stage(stage){
+  set Stage(stage: any){
     this.stage = stage;
   }
 }

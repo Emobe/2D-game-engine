@@ -4,17 +4,17 @@ import Component from '../Component';
 
 class Health extends Component {
 
-  health: Number;
+  health: number;
 
   initialise(){
     this.health = 100;
   }
 
-  get Health(){
+  get Health(): number{
     return this.health;
   }
 
-  set Health(health: Number){
+  set Health(health: number){
     this.health = health;
   }
 

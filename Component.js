@@ -7,17 +7,17 @@ class Component {
   initialise(){
   }
 
-  loadContent(manager){
+  loadContent(loader: any, stage: any){
   }
 
-  update(delta: Number){
+  update(delta: number){
   }
 
   set Owner(entity: Entity) {
     this.owner = entity
   }
 
-  get Owner(){
+  get Owner(): Entity{
     return this.owner;
   }
 }

@@ -8,11 +8,11 @@ export type EntityList = Map<string, Entity>;
 class EntityCollection {
   entities: EntityList;
 
-  constructor(manager) {
+  constructor(manager: any) {
     this.entities = new Map();
   }
 
-  addEntity(name: string, item: Entity, manager) {
+  addEntity(name: string, item: Entity, manager: any) {
     item.Manager = manager;
     this.entities.set(name, item);
   }
