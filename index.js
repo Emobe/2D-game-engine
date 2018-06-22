@@ -30,7 +30,10 @@ class NessJS {
     //PIXI.loader.add(assets).load(this.main.bind(this));
     this.mainScene.loadContent(this.loader, this.app.stage);
     this.loader.on('progress', this.isLoading);
-    this.loader.load((loader, resources) => console.log(resources, loader));
+    this.loader.load((loader, resources) => {
+      console.log(this.mainScene);
+      this.mainScene.renderMap(this.app.stage);
+    });
   }
 
   isLoading(loader){

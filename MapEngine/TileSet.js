@@ -1,14 +1,16 @@
 // @flow
 import { Rectangle, TextureCache } from 'pixi.js';
+import type Tile from './Tile';
 
 class TileSet {
-  tileSet: string;
+  texture: string;
   tilesWide: number;
   tilesHigh: number;
   sourceRectangles: Array<Rectangle>;
+  map: Array<Array<number>>;
 
-  constructor(tilesWide: number, tilesHigh: number, tileSet: string) {
-    this.tileSet = tileSet;
+  constructor(tilesWide: number, tilesHigh: number, texture: string) {
+    this.texture = texture;
     this.tilesWide = tilesWide;
     this.tilesHigh = tilesHigh;
     this.sourceRectangles = [];
@@ -21,36 +23,17 @@ class TileSet {
     }
     console.log(this.sourceRectangles);
 
-    this.map = [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    ];
   }
 
   initialise() {
-    for (let y = 0; y < this.map.length; y++) {
-      for (let x = 0; x < this.map[0].length; x++) {
-        this.sourceRectangles[tile] = new Rectangle(x * 64, y * 64, 64, 64);
-      }
-    }
   }
 
-  loadContent(loader, stage) {
-    loader.add(this.tileSet);
+  loadContent(loader: any, stage: any) {
+    loader.add(this.texture);
+  }
+
+  get Texture(): string{
+    return this.texture;
   }
 }
 

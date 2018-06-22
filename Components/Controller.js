@@ -8,19 +8,23 @@ class Controller extends Component {
   moveable: boolean;
 
   initialise(){
-    this.movable = true;
+    this.moveable = true;
   }
 
-  update(delta: number){
+  update(delta: number): void{
     switch(Input.key){
       case 'w': 
-        return this.Owner.Y = this.Owner.Y - 1;
+        this.Owner.Y = this.Owner.Y - 1;
+        break;
       case 'a': 
-        return this.Owner.X = this.Owner.X - 1;
+        this.Owner.X = this.Owner.X - 1;
+        break;
       case 's': 
-        return this.Owner.Y = this.Owner.Y + 1;
+        this.Owner.Y = this.Owner.Y + 1;
+        break;
       case 'd': 
-        return this.Owner.X = this.Owner.X + 1;
+        this.Owner.X = this.Owner.X + 1;
+        break;
     }
   }
 };

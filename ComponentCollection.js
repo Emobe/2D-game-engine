@@ -15,7 +15,6 @@ class ComponentCollecton {
   addComponent(item: Component) {
     this.components.set(item.constructor.name, item);
     this.onComponentAdded(new CustomEvent('Component Added', { detail: item }));
-    console.log(item);
     item.initialise();
   }
 

@@ -7,7 +7,17 @@ class Tile {
 
   constructor(tileIndex: number, tileSet: number){
     this.tileIndex = tileIndex;
-    this.tielSet = tileSet;
+    this.tileSet = tileSet;
+  }
+
+  get TileSet(): number{
+    return this.tileSet;
+  }
+
+  get TileIndex(): number{
+    return this.tileIndex;
   }
 
 };
+
+export default Tile;

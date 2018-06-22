@@ -7,7 +7,7 @@ class Physics extends Component {
   moveable: boolean;
 
   initialise(){
-    this.movable = true;
+    this.moveable = true;
   }
 
   get Moveable(): boolean{

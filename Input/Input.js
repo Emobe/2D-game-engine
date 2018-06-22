@@ -1,11 +1,11 @@
 // @flow
 
 class Input {
-  static keys: { [string]: string};
+  static key: ?string;
   static lastKey: ?string;
 
   constructor() {
-    Input.keys = {};
+    Input.key = null;
     Input.lastKey = null;
   }
 
