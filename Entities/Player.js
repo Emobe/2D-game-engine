@@ -17,7 +17,6 @@ class Player extends Entity {
       new Controller(),
       new Sprite(path)
     );
-    console.log(x, y);
   }
 }
 

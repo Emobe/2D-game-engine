@@ -17,7 +17,6 @@ class Sprite extends Component {
   }
 
   onLoaded(stage: any) {
-    console.log('sdfsd');
     this.sprite = new PixiSprite(utils.TextureCache[this.path]);
     stage.addChild(this.sprite);
   }

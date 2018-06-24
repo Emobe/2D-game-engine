@@ -6,11 +6,11 @@ class Component {
 
   initialise() {}
 
-  loadContent(loader: any) {}
+  loadContent(_: any) {}
 
-  onLoaded(stage: any) {}
+  onLoaded(_: any) {}
 
-  update(delta: number) {}
+  update(_: number) {}
 
   set Owner(entity: Entity) {
     this.owner = entity;

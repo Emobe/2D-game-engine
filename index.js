@@ -2,6 +2,7 @@ import * as PIXI from "pixi.js";
 import Scene from "./Scene";
 import Player from "./Entities/Player";
 import Input from "./Input/Input";
+import Debug from "./Debug";
 
 class NessJS {
   constructor() {
@@ -19,15 +20,15 @@ class NessJS {
     this.textures = ["player.png"];
     this.mainScene.Manager.addEntity("player", this.player);
     this.input.initialise();
+    this.debug = new Debug(this.app.stage);
     this.loadContent();
   }
 
   loadContent() {
     this.mainScene.loadContent(this.loader, this.app.stage);
     this.loader.on("progress", this.isLoading);
+    Debug.log("test");
     this.loader.load(() => {
-      console.log(this.mainScene);
-      console.log(this.app.stage);
       this.mainScene.onLoaded(this.app.stage);
     });
   }
