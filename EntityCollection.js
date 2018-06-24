@@ -1,14 +1,12 @@
 // @flow
-import Entity from './Entity';
-import Health from './Components/Health';
-import type ComponentManager from './ComponentManager';
+import Entity from "./Entity";
 
 export type EntityList = Map<string, Entity>;
 
 class EntityCollection {
   entities: EntityList;
 
-  constructor(manager: any) {
+  constructor() {
     this.entities = new Map();
   }
 

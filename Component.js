@@ -1,23 +1,22 @@
 // @flow
-import type Entity from './Entity';
-class Component {
+import type Entity from "./Entity";
 
+class Component {
   owner: Entity;
 
-  initialise(){
-  }
+  initialise() {}
 
-  loadContent(loader: any, stage: any){
-  }
+  loadContent(loader: any) {}
 
-  update(delta: number){
-  }
+  onLoaded(stage: any) {}
+
+  update(delta: number) {}
 
   set Owner(entity: Entity) {
-    this.owner = entity
+    this.owner = entity;
   }
 
-  get Owner(): Entity{
+  get Owner(): Entity {
     return this.owner;
   }
 }

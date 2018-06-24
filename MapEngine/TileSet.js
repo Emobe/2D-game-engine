@@ -1,12 +1,15 @@
 // @flow
-import { Rectangle, TextureCache } from 'pixi.js';
-import type Tile from './Tile';
+import {Rectangle} from "pixi.js";
 
 class TileSet {
   texture: string;
+
   tilesWide: number;
+
   tilesHigh: number;
+
   sourceRectangles: Array<Rectangle>;
+
   map: Array<Array<number>>;
 
   constructor(tilesWide: number, tilesHigh: number, texture: string) {
@@ -22,17 +25,13 @@ class TileSet {
       }
     }
     console.log(this.sourceRectangles);
-
   }
 
-  initialise() {
-  }
-
-  loadContent(loader: any, stage: any) {
+  loadContent(loader: any) {
     loader.add(this.texture);
   }
 
-  get Texture(): string{
+  get Texture(): string {
     return this.texture;
   }
 }

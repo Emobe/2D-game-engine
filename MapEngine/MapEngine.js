@@ -1,20 +1,22 @@
 // @flow
 
-import { Sprite, TextureCache } from 'pixi.js';
-import Tile from './Tile';
-import TileSet from './TileSet';
-import TileMap from './TileMap';
-import MapLayer from './MapLayer';
+import Tile from "./Tile";
+import TileSet from "./TileSet";
+import TileMap from "./TileMap";
+import MapLayer from "./MapLayer";
 
 class MapEngine {
   static tileSize: number;
+
   tileSet: TileSet;
+
   mapLayer: MapLayer;
+
   map: TileMap;
 
   constructor(tileSize: number) {
     MapEngine.tileSize = tileSize;
-    this.tileSet = new TileSet(1, 1, '../../assets/images/map.png');
+    this.tileSet = new TileSet(1, 1, "../../assets/images/map.png");
     this.mapLayer = new MapLayer(40, 40);
   }
 

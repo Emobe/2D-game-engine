@@ -1,23 +1,21 @@
 // @flow
 
-import Component from '../Component';
+import Component from "../Component";
 
 class Physics extends Component {
-
   moveable: boolean;
 
-  initialise(){
+  initialise() {
     this.moveable = true;
   }
 
-  get Moveable(): boolean{
+  get Moveable(): boolean {
     return this.moveable;
   }
 
-  set Moveable(moveable: boolean){
+  set Moveable(moveable: boolean) {
     this.moveable = moveable;
   }
-
-};
+}
 
 export default Physics;

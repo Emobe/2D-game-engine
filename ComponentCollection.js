@@ -1,5 +1,5 @@
 // @flow
-import type Component from './Component';
+import type Component from "./Component";
 
 export type ComponentList = Map<string, Component>;
 
@@ -10,11 +10,13 @@ class ComponentCollecton {
     this.components = new Map();
   }
 
-  onComponentAdded(event: CustomEvent) {}
+  onComponentAdded(event: CustomEvent) {
+    console.log(event);
+  }
 
   addComponent(item: Component) {
     this.components.set(item.constructor.name, item);
-    this.onComponentAdded(new CustomEvent('Component Added', { detail: item }));
+    this.onComponentAdded(new CustomEvent("Component Added", {detail: item}));
     item.initialise();
   }
 

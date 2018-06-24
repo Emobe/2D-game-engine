@@ -1,13 +1,13 @@
 // @flow
 
-import Component from '../Component';
+import Component from "../Component";
 
 class Position extends Component {
-
   x: number;
+
   y: number;
 
-  constructor(x: number, y: number){
+  constructor(x: number, y: number) {
     super();
     this.x = x;
     this.y = y;
@@ -28,7 +28,6 @@ class Position extends Component {
   set Y(position: number) {
     this.y = position;
   }
-
-};
+}
 
 export default Position;

@@ -1,11 +1,10 @@
 // @flow
 
-import type Entity from './Entity';
-import type Component from './Component';
-import EntityCollection from './EntityCollection';
+import type Entity from "./Entity";
+import type Component from "./Component";
+import EntityCollection from "./EntityCollection";
 
 class ComponentManager extends EntityCollection {
-
   stage: any;
 
   constructor() {
@@ -21,14 +20,20 @@ class ComponentManager extends EntityCollection {
     });
   }
 
-  loadContent(loader: any, stage: any) {
+  loadContent(loader: any) {
     this.getAllEntities.forEach((entity: Entity) => {
-      entity.getAllComponents.forEach((component: Component) =>{
-        switch(component.constructor.name){
-          case "Sprite": 
-            return component.loadContent(loader, stage);
-          default: 
-            return component.loadContent(loader);
+      entity.getAllComponents.forEach((component: Component) => {
+        return component.loadContent(loader);
+      });
+    });
+  }
+
+  onLoaded(stage: any) {
+    this.getAllEntities.forEach((entity: Entity) => {
+      entity.getAllComponents.forEach((component: Component) => {
+        console.log(component);
+        if (component.constructor.name === "Sprite") {
+          component.onLoaded(stage);
         }
       });
     });
@@ -38,18 +43,14 @@ class ComponentManager extends EntityCollection {
 
   update(delta: number) {
     this.entities.forEach((entity: Entity) => {
-      entity.getAllComponents.forEach((component: Component) =>{
-        component.update(delta)
+      entity.getAllComponents.forEach((component: Component) => {
+        component.update(delta);
       });
     });
     //  });
   }
 
-  render() {
-    //  this.entities.forEach(entity => entity.render());
-  }
-
-  set Stage(stage: any){
+  set Stage(stage: any) {
     this.stage = stage;
   }
 }

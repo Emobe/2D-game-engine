@@ -9,26 +9,26 @@ class Input {
     Input.lastKey = null;
   }
 
-  initialise(){
-    window.addEventListener('keydown', this.onKeyDown, false);
-    window.addEventListener('keyup', this.onKeyUp, false);
+  initialise() {
+    window.addEventListener("keydown", this.onKeyDown, false);
+    window.addEventListener("keyup", this.onKeyUp, false);
   }
 
-  onKeyDown(event: KeyboardEvent){
+  onKeyDown(event: KeyboardEvent) {
     Input.lastKey = Input.key;
     Input.key = event.key;
   }
 
-  onKeyUp(event: KeyboardEvent){
+  onKeyUp(event: KeyboardEvent) {
     Input.lastKey = Input.key;
     Input.key = null;
   }
-  
-  static get Key(): ?string{
+
+  static get Key(): ?string {
     return Input.key;
   }
-  
-  static get LastKey(): ?string{
+
+  static get LastKey(): ?string {
     return Input.lastKey;
   }
 }
