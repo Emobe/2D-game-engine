@@ -5,6 +5,8 @@ import MapEngine from "./MapEngine";
 import type TileSet from "./TileSet";
 import type MapLayer from "./MapLayer";
 
+type Map = Array<Array<number>>;
+
 class TileMap {
   tileSets: Array<TileSet>;
 
@@ -12,30 +14,13 @@ class TileMap {
 
   container: any;
 
-  map: Array<Array<number>>;
+  map: Map;
 
-  constructor(tileSets: TileSet, mapLayers: MapLayer) {
+  constructor(tileSets: TileSet, mapLayers: MapLayer, map: Map) {
     this.tileSets = [tileSets];
     this.mapLayers = [mapLayers];
     this.container = new Container();
-    this.map = [
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    ];
+    this.map = map;
   }
 
   render() {
@@ -71,6 +56,10 @@ class TileMap {
 
   get Container() {
     return this.container;
+  }
+
+  set Map(map: Map) {
+    this.map = map
   }
 }
 

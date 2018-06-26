@@ -4,6 +4,7 @@ import MapEngine from "./MapEngine/MapEngine";
 import MapLayer from "./MapEngine/MapLayer";
 import TileMap from "./MapEngine/TileMap";
 import TileSet from "./MapEngine/TileSet";
+import * as Maps from "../assets/maps";
 
 class Scene {
   manager: ComponentManager;
@@ -28,7 +29,7 @@ class Scene {
     this.mapEngine.initialise();
     this.mapLayer = new MapLayer(16, 16);
     this.tileSet = new TileSet(2, 1, "../assets/images/map.png");
-    this.tileMap = new TileMap(this.tileSet, this.mapLayer);
+    this.tileMap = new TileMap(this.tileSet, this.mapLayer, Maps.Map1);
   }
 
   loadContent(loader: any) {
