@@ -20,7 +20,7 @@ class Scene {
 
   constructor() {
     this.manager = new ComponentManager();
-    this.mapEngine = new MapEngine(64);
+    this.mapEngine = new MapEngine(16);
   }
 
   initialise() {

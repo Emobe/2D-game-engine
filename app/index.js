@@ -7,12 +7,12 @@ import Debug from "./Debug";
 class NessJS {
   constructor() {
     this.mainScene = new Scene();
-    this.player = new Player("hello", 0, 0, "../../assets/images/player.png");
-    this.loader = new PIXI.loaders.Loader();
+    this.loader = new PIXI.loaders.Loader("../../assets/");
     this.input = new Input();
   }
 
   initialise() {
+    this.player = new Player("hello", 0, 0, "images/player.png");
     this.app = new PIXI.Application({transparent: true});
     document.body.appendChild(this.app.view);
     this.app.ticker.add(delta => this.gameLoop(delta));

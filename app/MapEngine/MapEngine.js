@@ -16,7 +16,6 @@ class MapEngine {
 
   constructor(tileSize: number) {
     MapEngine.tileSize = tileSize;
-    this.tileSet = new TileSet(1, 1, "../../assets/images/map.png");
     this.mapLayer = new MapLayer(40, 40);
   }
 

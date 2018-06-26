@@ -21,14 +21,14 @@ class Scene {
 
   constructor() {
     this.manager = new ComponentManager();
-    this.mapEngine = new MapEngine(64);
+    this.mapEngine = new MapEngine(32);
   }
 
   initialise() {
     this.manager.initialise();
     this.mapEngine.initialise();
     this.mapLayer = new MapLayer(16, 16);
-    this.tileSet = new TileSet(2, 1, "../assets/images/map.png");
+    this.tileSet = new TileSet(3, 1, "images/map32.png");
     this.tileMap = new TileMap(this.tileSet, this.mapLayer, Maps.Map1);
   }
 

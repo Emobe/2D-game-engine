@@ -1,5 +1,6 @@
 // @flow
 import {Rectangle} from "pixi.js";
+import MapEngine from "./MapEngine";
 
 class TileSet {
   texture: string;
@@ -20,7 +21,12 @@ class TileSet {
     let tile = 0;
     for (let y = 0; y < this.tilesHigh; y++) {
       for (let x = 0; x < this.tilesWide; x++) {
-        this.sourceRectangles[tile] = new Rectangle(x * 64, y * 64, 64, 64);
+        this.sourceRectangles[tile] = new Rectangle(
+          x * MapEngine.TileSize,
+          y * MapEngine.TileSize,
+          MapEngine.TileSize,
+          MapEngine.TileSize
+        );
         tile++;
       }
     }
